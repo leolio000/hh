@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { createClient } from "@/lib/supabase/client";
 import { User } from "@supabase/supabase-js";
 
@@ -51,7 +51,7 @@ export default function CreatorDashboard() {
     getSession();
   }, [supabase.auth, loadDashboardData]);
 
-  const loadDashboardData = async (userId: string) => {
+  const loadDashboardData = useCallback(async (userId: string) => {
     try {
       // Load user profile
       const { data: profile } = await supabase
@@ -106,7 +106,7 @@ export default function CreatorDashboard() {
     } catch (error) {
       console.error('Error loading dashboard data:', error);
     }
-  };
+  }, [supabase]);
 
   if (loading) {
     return (

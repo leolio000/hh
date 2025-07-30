@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import PinterestGrid from "@/components/pinterest-grid";
 import SearchFilters from "@/components/search-filters";
 
@@ -28,7 +28,7 @@ export default function CreatorsPage() {
   const [hasMore, setHasMore] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
 
-  const allCreators: Creator[] = [
+  const allCreators: Creator[] = useMemo(() => [
     {
       id: 1,
       name: "Melinda H.",
@@ -157,7 +157,7 @@ export default function CreatorsPage() {
       gender: "Homme",
       shootingType: ["Solo", "Couple"]
     }
-  ];
+  ], []);
 
   const categories = [
     "Beauté", "Mode", "Lifestyle", "Famille", "Parenting", "Tech", 

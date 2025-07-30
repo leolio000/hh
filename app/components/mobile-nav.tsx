@@ -126,10 +126,10 @@ export default function MobileNav({ user, onSignOut }: MobileNavProps) {
                 Politique de confidentialité
               </Link>
               <Link href="/terms" className="block py-1 hover:text-gray-900" onClick={toggleMenu}>
-                Conditions d'utilisation
+                Conditions d&apos;utilisation
               </Link>
               <Link href="/help" className="block py-1 hover:text-gray-900" onClick={toggleMenu}>
-                Centre d'aide
+                Centre d&apos;aide
               </Link>
             </div>
           </div>

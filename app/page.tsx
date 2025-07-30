@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import Link from "next/link";
 import AnimatedText from "./components/animated-text";
 import PinterestGrid from "./components/pinterest-grid";
@@ -42,7 +42,7 @@ export default function HomePage() {
     "États-Unis", "France", "Espagne", "Italie", "Canada", "Belgique"
   ];
 
-  const allCreators: Creator[] = [
+  const allCreators: Creator[] = useMemo(() => [
     {
       id: 1,
       name: "Melinda H.",
@@ -235,7 +235,7 @@ export default function HomePage() {
       gender: "Homme",
       shootingType: ["Solo", "Couple"]
     }
-  ];
+  ], []);
 
   const categories = [
     "Beauté", "Mode", "Lifestyle", "Famille", "Parenting", "Tech", 
