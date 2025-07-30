@@ -37,20 +37,6 @@ export default function CreatorDashboard() {
   const [recentProjects, setRecentProjects] = useState<Project[]>([]);
   const supabase = createClient();
 
-  useEffect(() => {
-    const getSession = async () => {
-      const { data: { session } } = await supabase.auth.getSession();
-      setUser(session?.user ?? null);
-      setLoading(false);
-      
-      if (session?.user) {
-        await loadDashboardData(session.user.id);
-      }
-    };
-
-    getSession();
-  }, [supabase.auth, loadDashboardData]);
-
   const loadDashboardData = useCallback(async (userId: string) => {
     try {
       // Load user profile
@@ -107,6 +93,20 @@ export default function CreatorDashboard() {
       console.error('Error loading dashboard data:', error);
     }
   }, [supabase]);
+
+  useEffect(() => {
+    const getSession = async () => {
+      const { data: { session } } = await supabase.auth.getSession();
+      setUser(session?.user ?? null);
+      setLoading(false);
+      
+      if (session?.user) {
+        await loadDashboardData(session.user.id);
+      }
+    };
+
+    getSession();
+  }, [supabase.auth, loadDashboardData]);
 
   if (loading) {
     return (
