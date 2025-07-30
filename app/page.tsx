@@ -281,7 +281,7 @@ export default function HomePage() {
 
     if (filters.location) {
       filtered = filtered.filter(creator =>
-        creator.location.toLowerCase().includes(filters.location.toLowerCase())
+        creator.location.toLowerCase().includes(filters.location!.toLowerCase())
       );
     }
 
