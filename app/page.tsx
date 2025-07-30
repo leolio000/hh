@@ -275,7 +275,7 @@ export default function HomePage() {
 
     if (filters.category) {
       filtered = filtered.filter(creator =>
-        creator.specialties.includes(filters.category)
+        creator.specialties.includes(filters.category!)
       );
     }
 
