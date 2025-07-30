@@ -47,8 +47,21 @@ export async function updateSession(request: NextRequest) {
   const { data } = await supabase.auth.getClaims();
   const user = data?.claims;
 
+  // Pages publiques qui ne nécessitent pas d'authentification
+  const publicPages = [
+    "/",
+    "/creators",
+    "/portfolio"
+  ];
+
+  // Vérifier si la page actuelle est publique
+  const isPublicPage = publicPages.some(page => 
+    request.nextUrl.pathname === page || 
+    request.nextUrl.pathname.startsWith(page + "/")
+  );
+
   if (
-    request.nextUrl.pathname !== "/" &&
+    !isPublicPage &&
     !user &&
     !request.nextUrl.pathname.startsWith("/login") &&
     !request.nextUrl.pathname.startsWith("/auth")

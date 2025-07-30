@@ -1,0 +1,29 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://createurs-ugc-france.com/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 1
+
+# Disallow admin and private areas
+Disallow: /auth/
+Disallow: /dashboard/
+Disallow: /api/
+
+# Allow important pages
+Allow: /creators
+Allow: /portfolio
+Allow: /about
+Allow: /contact
+
+# Block common bots that might cause issues
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: SemrushBot
+Crawl-delay: 10
+
+User-agent: MJ12bot
+Crawl-delay: 10 
