@@ -16,7 +16,9 @@ export default function BrandsPage() {
       price: "€200-500",
       responseTime: "12h",
       followers: "45K",
-      engagement: "8.2"
+      engagement: "8.2",
+      gender: "Femme",
+      shootingType: ["Couple", "Famille"]
     },
     {
       id: 2,
@@ -30,7 +32,9 @@ export default function BrandsPage() {
       price: "€150-400",
       responseTime: "8h",
       followers: "32K",
-      engagement: "12.5"
+      engagement: "12.5",
+      gender: "Femme",
+      shootingType: ["Famille", "Parent"]
     },
     {
       id: 3,
@@ -44,7 +48,9 @@ export default function BrandsPage() {
       price: "€300-800",
       responseTime: "1h",
       followers: "78K",
-      engagement: "15.8"
+      engagement: "15.8",
+      gender: "Femme",
+      shootingType: ["Couple", "Amis"]
     }
   ];
 
